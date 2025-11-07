@@ -1,0 +1,31 @@
+{
+  "schema_version": "v1",
+  "name": "ANTROPIK MED — Site Builder",
+  "description": "Автоматическая сборка страниц сайта в Figma и синхронизация с Next.js + Shadcn UI.",
+  "permissions": {
+    "allow_network": true
+  },
+  "settings": {
+    "FIGMA_TOKEN": {
+      "type": "secret",
+      "description": "Figma Personal Access Token"
+    }
+  },
+  "functions": [
+    {
+      "name": "assemble_page",
+      "description": "Собрать страницу из блоков в Figma",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "page_name": { "type": "string" },
+          "blocks": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "required": ["page_name", "blocks"]
+      }
+    }
+  ]
+}
